@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.hibernate.tutorial.domain">
+	<class name="Student" table="STUDENT">
+		<meta attribute="class-description">
+			This class contains the Student detail. 
+      </meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="firstName" column="first_name" type="string" />
+		<property name="lastName" column="last_name" type="string" />
+		<property name="salary" column="salary" type="int" />
+		
+		<set name="certificates" cascade="all" table="CERTIFICATE">
+			<key column="student_id" />
+			<one-to-many class="Certificate" />
+		</set>
+		
+	</class>
+</hibernate-mapping>
+<!--
+The mapping document is an XML document having <hibernate-mapping> as the root element which contains two <class> elements corresponding to each class.
+
+The <class> elements are used to define specific mappings from a Java classes to the database tables. The Java class name is specified using the name attribute of the class element and the database table name is specified using the table attribute.
+
+The <meta> element is optional element and can be used to create the class description.
+
+The <id> element maps the unique ID attribute in class to the primary key of the database table. The name attribute of the id element refers to the property in the class and the column attribute refers to the column in the database table. The type attribute holds the hibernate mapping type, this mapping types will convert from Java to SQL data type.
+
+The <generator> element within the id element is used to automatically generate the primary key values. Set the class attribute of the generator element is set to native to let hibernate pick up either identity, sequence or hilo algorithm to create primary key depending upon the capabilities of the underlying database.
+
+The <property> element is used to map a Java class property to a column in the database table. The name attribute of the element refers to the property in the class and the column attribute refers to the column in the database table. The type attribute holds the hibernate mapping type, this mapping types will convert from Java to SQL data type.
+
+The <set> element sets the relationship between Certificate and Employee classes. We used the cascade attribute in the <set> element to tell Hibernate to persist the Certificate objects at the same time as the Employee objects. The name attribute is set to the defined Set variable in the parent class, in our case it is certificates. For each set variable, we need to define a separate set element in the mapping file.
+
+The <key> element is the column in the CERTIFICATE table that holds the foreign key to the parent object ie. table EMPLOYEE.
+
+The <one-to-many> element indicates that one Employee object relates to many Certificate objects.
+-->

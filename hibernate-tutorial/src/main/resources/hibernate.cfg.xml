@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+    
+ <hibernate-configuration>
+<session-factory>
+<!-- Database connection settings -->
+<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+<property name="connection.url">jdbc:mysql://localhost:3306/loglocal</property>
+<property name="connection.username">root</property>
+<property name="connection.password">techm</property>
+
+<!-- JDBC connection pool (use the built-in) -->
+<property name="connection.pool_size">1</property>
+
+<!-- SQL dialect -->
+<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+<!-- Enable Hibernate's automatic session context management -->
+<property name="current_session_context_class">thread</property>
+
+<!-- Disable the second-level cache -->
+<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+<!-- Echo all executed SQL to stdout -->
+<property name="show_sql">true</property>
+
+<!-- Drop and re-create the database schema on startup -->
+<property name="hbm2ddl.auto">update</property>
+
+<mapping resource="org/hibernate/tutorial/domain/Event.hbm.xml"/>
+<mapping resource="org/hibernate/tutorial/domain/Person.hbm.xml"/>
+<!-- Many to One Example  and can be chnaged  One to One with minor changes by adding unique="true" in many-to-one tag-->
+<mapping resource="org/hibernate/tutorial/domain/Employee.hbm.xml"/>
+<mapping resource="org/hibernate/tutorial/domain/Address.hbm.xml"/>
+<!-- One to One Example -->
+<mapping resource="org/hibernate/tutorial/domain/Stock.hbm.xml"/>
+<mapping resource="org/hibernate/tutorial/domain/StockDetail.hbm.xml"/>
+<!-- One to Many Example -->
+<mapping resource="org/hibernate/tutorial/domain/Student.hbm.xml"/>
+<mapping resource="org/hibernate/tutorial/domain/Certificate.hbm.xml"/>
+<!-- Many to Many Example -->
+<mapping resource="org/hibernate/tutorial/domain/Student1.hbm.xml"/>
+<mapping resource="org/hibernate/tutorial/domain/Course.hbm.xml"/>
+</session-factory> 
+ 
+ 
+ 
+ </hibernate-configuration>
+
+<!--  Using hibernate default connection pooling 
+
+SessionFactory is a global factory responsible for
+a particular database. If you have several databases, for easier startup you should use several
+<session-factory> configurations in several configuration files.
+
+The first four property elements contain the necessary configuration for the JDBC connection.
+
+The dialect property element specifies the particular SQL variant Hibernate generates.
+
+Hibernate's automatic session management for persistence contexts is particularly useful in this
+context. 
+
+The hbm2ddl.auto option turns on automatic generation of database schemas directly
+into the database.This can also be turned off by removing the configuration option, or redirected
+to a file with the help of the SchemaExport Ant task. Finally, add the mapping file(s) for persistent
+classes to the configuration.
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+The built-in Hibernate connection pool is in no way intended for production use. It
+lacks several features found on any decent connection pool.
+
+
+ -->

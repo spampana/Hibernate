@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.hibernate.tutorial.domain">
+	
+	<class name="Employee" table="EMPLOYEE">
+
+		<id name="empid" column="EMP_ID" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="empname" column="EMPLOYEENAME" type="string" length="150" />
+
+		<many-to-one name="empaddress" column="EMP_ADDRESS" class="Address"
+			cascade="all" not-null="true" />
+			
+		<!--  we can make this many_to_one  to one_to_one by defining the unique = true in many-to-one tag  -->	
+
+	</class>
+</hibernate-mapping>
+
+<!-- 
+The mapping document is an XML document having <hibernate-mapping> as the root element which contains two <class> elements corresponding to each class.
+
+The <class> elements are used to define specific mappings from a Java classes to the database tables. The Java class name is specified using the name attribute of the class element and the database table name is specified using the table attribute.
+
+The <meta> element is optional element and can be used to create the class description.
+
+The <id> element maps the unique ID attribute in class to the primary key of the database table. The name attribute of the id element refers to the property in the class and the column attribute refers to the column in the database table. The type attribute holds the hibernate mapping type, this mapping types will convert from Java to SQL data type.
+
+The <generator> element within the id element is used to automatically generate the primary key values. Set the class attribute of the generator element is set to native to let hibernate pick up either identity, sequence or hilo algorithm to create primary key depending upon the capabilities of the underlying database.
+
+The <property> element is used to map a Java class property to a column in the database table. The name attribute of the element refers to the property in the class and the column attribute refers to the column in the database table. The type attribute holds the hibernate mapping type, this mapping types will convert from Java to SQL data type.
+
+The <many-to-one> element is used to set the relationship between EMPLOYEE and ADDRESS entities. The name attribute is set to the defined variable in the parent class, in our case it is address. The column attribute is used to set the column name in the parent table EMPLOYEE.
+
+ -->

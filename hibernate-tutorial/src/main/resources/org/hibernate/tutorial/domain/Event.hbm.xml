@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.hibernate.tutorial.domain">
+<class name="Event" table="EVENTS" >
+
+<id name="id" column="EVENT_ID">
+<generator class="native"/>
+</id>
+
+<property name="date" column="EVENT_DATE" type="timestamp"/>
+<property name="title" column="EVENT_TITLE" />
+
+</class>
+
+</hibernate-mapping>
+<!-- 
+Hibernate by default uses the property name as the column name if no column attribute defined
+
+The types declared and used in the mapping files are not Java data types; 
+they are not SQL database types either. These types are called Hibernate
+mapping types, converters which can translate from Java to SQL data types and vice versa.
+
+Hibernate makes this mapping type determination using reflection when the
+mapping files are processed. This can take time and resources, so if startup
+performance is important you should consider explicitly defining the type to use.
+
+ -->

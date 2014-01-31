@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 17, 2010 10:39:42 AM by Hibernate Tools 3.2.5.Beta -->
+
+<hibernate-mapping package="org.hibernate.tutorial.domain">
+
+    <class name="Stock" table="STOCK" >
+        <id name="stockId" type="java.lang.Integer" column ="STOCK_ID" >
+            <generator class="identity" />
+        </id>
+        <property name="stockCode" type="string"  column ="STOCK_CODE" length="10" not-null="true" unique="true" />
+       
+        <property name="stockName" type="string" column ="STOCK_NAME" length="20" not-null="true" unique="true" />
+        
+        <one-to-one name="stockDetail"  class="StockDetail" cascade="save-update"></one-to-one>
+
+        <!--  or similar like below
+         <many-to-one name="address" column="address" unique="true" class="Address" not-null="true"/>
+        unique attribute converts many to many  to one to one  statement
+         -->
+        
+    </class>
+</hibernate-mapping>
+<!-- 
+The main difficulty in this one-to-one relationship is ensuring both are assigned the same primary key. 
+In StockDetail.hbm.xml, a special foreign identifier generator is declared, it will know get the primary key 
+value from STOCK table. With constrained=”true”, it ensure the Stock must exists.
+ -->
