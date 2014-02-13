@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping package="org.hibernate.tutorial.domain">
+ 
+    <class name="Person2" table="PERSON2" discriminator-value="P">
+        <id name="personId" column="PERSON_ID">
+            <generator class="native" />
+        </id>
+ 
+        <discriminator column="DISCRIMINATOR" type="string" />
+ 
+        <property name="firstname" />
+        <property name="lastname" column="lastname" />
+ 
+        <subclass name="Employee2" extends="Person2" discriminator-value="E">
+                <property name="departmentName" column="department_name" />
+                <property name="joiningDate" type="date" column="joining_date" />
+        </subclass>
+        
+        <subclass name="Owner2" extends="Person2" discriminator-value="O">
+                <property name="stocks" column="stocks" />
+                <property name="partnershipStake"  column="partnership_stake" />
+        </subclass>
+        
+    </class>
+</hibernate-mapping>
+
+<!-- 
+<discriminator> tag is used to define the discriminator column.
+
+<subclass> tag is used to map the subclass Employee. 
+Note that we have not used the usual <class> tag to map Employee as it falls below in the hierarchy tree.
+
+The discriminator-value for Person is defined as “P” and that for Employee is defined “E”, 
+Thus, when Hibernate will persist the data for person or employee it will accordingly populate this value. -->

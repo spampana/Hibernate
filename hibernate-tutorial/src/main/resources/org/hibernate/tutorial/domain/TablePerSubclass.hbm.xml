@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping package="org.hibernate.tutorial.domain">
+ 
+    <class name="Person3" table="PERSON3">
+        <id name="personId" column="PERSON_ID">
+            <generator class="native" />
+        </id>
+ 
+        <property name="firstname" />
+        <property name="lastname" column="lastname" />
+ 
+        <joined-subclass name="Employee3" extends="Person3">
+                <key column="person_id" />
+                <property name="departmentName" column="department_name" />
+                <property name="joiningDate" type="date" column="joining_date" />
+        </joined-subclass>
+        <joined-subclass name="Owner3" extends="Person3">
+                <key column="person_id" />
+                <property name="stocks" column="stocks" />
+                <property name="partnershipStake" column="partnership_stake" />
+        </joined-subclass>
+    </class>
+</hibernate-mapping>
+
+

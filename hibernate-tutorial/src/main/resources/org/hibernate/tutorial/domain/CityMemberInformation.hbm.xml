@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.hibernate.tutorial.domain">
+
+    <class name="CityMemberInformation" table="CITY_MEMBER_INFORMATION">
+        <composite-id name="cityMemberInformationId"  class="CityMemberInformationId">
+            <key-property name="cityId" type="integer" column ="CITY_ID" />
+            <key-property name="personId" type="integer" column ="PERSON_ID" />
+        </composite-id>
+        <property name="memberId" type="string">
+            <column name="MEMBER_ID" length="100" not-null="true" />
+        </property>
+        <property name="code" type="string">
+            <column name="CODE" />
+        </property>
+        <property name="noOfActiveYears" type="integer">
+            <column name="NO_OF_ACTIVE_YEARS" />
+        </property>
+    </class>
+</hibernate-mapping>

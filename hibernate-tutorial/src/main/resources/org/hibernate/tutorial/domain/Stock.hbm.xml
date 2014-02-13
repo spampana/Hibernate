@@ -13,7 +13,7 @@
        
         <property name="stockName" type="string" column ="STOCK_NAME" length="20" not-null="true" unique="true" />
         
-        <one-to-one name="stockDetail"  class="StockDetail" cascade="save-update"></one-to-one>
+       <!--  <one-to-one name="stockDetail"  class="StockDetail" cascade="save-update"></one-to-one> -->
 
         <!--  or similar like below
          <many-to-one name="address" column="address" unique="true" class="Address" not-null="true"/>

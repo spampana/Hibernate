@@ -43,8 +43,20 @@
 <!-- Many to Many Example -->
 <mapping resource="org/hibernate/tutorial/domain/Student1.hbm.xml"/>
 <mapping resource="org/hibernate/tutorial/domain/Course.hbm.xml"/>
-</session-factory> 
- 
+<!-- Composite Identifiers : two primary keys in a single table-->
+<mapping resource="org/hibernate/tutorial/domain/CityMemberInformation.hbm.xml"/>
+
+<!--  Inheritance Mapping -->
+
+<!-- Table per class Hierarchy: Single table for all  -->
+<mapping resource="org/hibernate/tutorial/domain/TablePerClassHierarchy.hbm.xml"/>
+<!-- Table Per Concrete Class:three table but sub-tables contains the parent table data also -->
+<mapping resource="org/hibernate/tutorial/domain/TablePerConcrete.hbm.xml"/>
+<!-- Table per subclass: three tables,main table key will be stored in sub-tables -->
+<mapping resource="org/hibernate/tutorial/domain/TablePerSubclass.hbm.xml"/>
+
+
+ </session-factory> 
  
  
  </hibernate-configuration>

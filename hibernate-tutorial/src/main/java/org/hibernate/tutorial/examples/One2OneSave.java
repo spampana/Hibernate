@@ -16,8 +16,8 @@ public class One2OneSave {
  
 		Stock stock = new Stock();
  
-		stock.setStockCode("471611");
-		stock.setStockName("GENME22");
+		stock.setStockCode("471617");
+		stock.setStockName("GENME27");
  
 		StockDetail stockDetail = new StockDetail();
 		stockDetail.setCompName("GENTING Malaysia");
@@ -25,9 +25,10 @@ public class One2OneSave {
 		stockDetail.setRemark("Nothing Special");
 		stockDetail.setListedDate(new Date());
  
-		stock.setStockDetail(stockDetail);
+		//stock.setStockDetail(stockDetail);
 		stockDetail.setStock(stock);
  		session.save(stock);
+ 		session.save(stockDetail);
 		session.getTransaction().commit();
  
 		System.out.println("Done");
