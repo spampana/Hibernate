@@ -5,6 +5,7 @@
     
  <hibernate-configuration>
 <session-factory>
+
 <!-- Database connection settings -->
 <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 <property name="connection.url">jdbc:mysql://localhost:3306/loglocal</property>
@@ -28,6 +29,12 @@
 
 <!-- Drop and re-create the database schema on startup -->
 <property name="hbm2ddl.auto">update</property>
+
+
+<!-- Mapping pojo classes(Annotated) -->
+
+<!--  NamedQueries  -->
+<mapping class="org.hibernate.tutorial.domain.Student3"/>
 
 <!--  Mapping the hbm.xml files -->
 
@@ -63,7 +70,6 @@
 <!-- Table per subclass: three tables,main table key will be stored in sub-tables -->
 <mapping resource="org/hibernate/tutorial/domain/TablePerSubclass.hbm.xml"/>
 
-
  </session-factory> 
  
  
@@ -88,22 +94,6 @@ to a file with the help of the SchemaExport Ant task. Finally, add the mapping f
 classes to the configuration.
 
 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

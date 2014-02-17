@@ -1,5 +1,7 @@
 package org.hibernate.tutorial.domain;
 
+
+
 //According to the relationship many Employees can have the same address.
 public class Employee {
 

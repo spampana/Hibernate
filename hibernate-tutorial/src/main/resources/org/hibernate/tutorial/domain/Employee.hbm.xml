@@ -18,7 +18,6 @@
 
 	</class>
 </hibernate-mapping>
-
 <!-- 
 The mapping document is an XML document having <hibernate-mapping> as the root element which contains two <class> elements corresponding to each class.
 

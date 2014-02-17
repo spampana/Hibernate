@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.hibernate.tutorial.domain">
+	<class name="Student3" table="student3" >
+		<id name="studentId" type="java.lang.Integer">
+			<column name="STUDENT_ID" />
+			<generator class="identity" />
+		</id>
+		<property name="studentName" type="string">
+			<column name="STUDENT_NAME" length="10" not-null="true"
+				unique="true" />
+		</property>
+		<property name="studentAge" type="string">
+			<column name="STUDENT_Age" length="20" not-null="true" unique="true" />
+		</property>
+		<filter name="studentFilter"  condition="STUDENT_ID >= :studentFilterID"/>
+	</class>
+
+<!-- HQL Query -->
+	<query name="findStudentByID">
+               <![CDATA[from Student3 st where st.studentId = :studentId]]>
+	</query>
+<!-- SQL Query -->
+	<sql-query name="findStudentByID1">
+		<return alias="student" class="Student3" />
+	    <![CDATA[select * from student3 s where s.STUDENT_ID = :studentId]]>
+	</sql-query>
+	
+<!-- Filter -->
+
+<filter-def name="studentFilter">
+		<filter-param name="studentFilterID" type="java.lang.Integer" />
+</filter-def>
+</hibernate-mapping>
+

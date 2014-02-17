@@ -58,6 +58,30 @@
 			<artifactId>javassist</artifactId>
 			<version>3.12.1.GA</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<version>3.2.1.ga</version>
+		</dependency>
+
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm-attrs</artifactId>
+			<version>2.2.3</version>
+		</dependency>
+		
+			<dependency>
+				<groupId>net.sf.ehcache</groupId>
+				<artifactId>ehcache</artifactId>
+				<version>2.8.1</version>
+			</dependency>
 		<!-- Hibernate library dependecy end -->
 
 		<!-- Because this is a web app, we also have a dependency on the servlet 
@@ -82,7 +106,8 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.18</version>
 		</dependency>
-
+		
+	
 	</dependencies>
 
 </project>
