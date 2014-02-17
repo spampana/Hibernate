@@ -29,20 +29,28 @@
 <!-- Drop and re-create the database schema on startup -->
 <property name="hbm2ddl.auto">update</property>
 
+<!--  Mapping the hbm.xml files -->
+
+<!-- General -->
 <mapping resource="org/hibernate/tutorial/domain/Event.hbm.xml"/>
 <mapping resource="org/hibernate/tutorial/domain/Person.hbm.xml"/>
-<!-- Many to One Example  and can be chnaged  One to One with minor changes by adding unique="true" in many-to-one tag-->
-<mapping resource="org/hibernate/tutorial/domain/Employee.hbm.xml"/>
-<mapping resource="org/hibernate/tutorial/domain/Address.hbm.xml"/>
+
+<!-- Hibernate Mappings -->
+
 <!-- One to One Example -->
 <mapping resource="org/hibernate/tutorial/domain/Stock.hbm.xml"/>
 <mapping resource="org/hibernate/tutorial/domain/StockDetail.hbm.xml"/>
 <!-- One to Many Example -->
 <mapping resource="org/hibernate/tutorial/domain/Student.hbm.xml"/>
 <mapping resource="org/hibernate/tutorial/domain/Certificate.hbm.xml"/>
+<!-- Many to One Example  and can be changed  One to One with minor changes by adding unique="true" in many-to-one tag-->
+<mapping resource="org/hibernate/tutorial/domain/Employee.hbm.xml"/>
+<mapping resource="org/hibernate/tutorial/domain/Address.hbm.xml"/>
 <!-- Many to Many Example -->
 <mapping resource="org/hibernate/tutorial/domain/Student1.hbm.xml"/>
 <mapping resource="org/hibernate/tutorial/domain/Course.hbm.xml"/>
+
+
 <!-- Composite Identifiers : two primary keys in a single table-->
 <mapping resource="org/hibernate/tutorial/domain/CityMemberInformation.hbm.xml"/>
 

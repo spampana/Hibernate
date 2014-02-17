@@ -30,6 +30,7 @@ public class TablePerSubClass {
         Owner3 owner = new Owner3("Bill", "Gates", 300L, 20L);
         owner.setPersonId(3L);
         session.save(owner);
+       
  
          
         session.getTransaction().commit();
