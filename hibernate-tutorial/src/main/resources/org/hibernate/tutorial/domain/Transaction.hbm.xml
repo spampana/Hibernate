@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.hibernate.tutorial.domain">
+<class name="Transaction" table="Transaction"> 
+<id name="transactionId" column="txn_id" type= "integer">
+<generator class="identity"/>
+</id>
+<property name="transactionDate" column="txn_date" type="date"/>
+<property name="transactionAmount" column="txn_total" type="double"></property>
+<one-to-one name="customer" class="Customer"  cascade="all" />
+</class>
+
+</hibernate-mapping>

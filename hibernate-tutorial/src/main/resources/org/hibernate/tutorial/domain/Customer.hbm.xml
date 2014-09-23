@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="org.hibernate.tutorial.domain">
+    <class name="Customer" table="Customer">
+    <id name="transactionId" column="txn_id" type="integer">
+    <generator class="foreign" >
+    <param name="property">transaction</param>
+    </generator>
+    </id>
+    <one-to-one name="transaction" class="Transaction" constrained="true"/>
+    
+    <!-- constrained= true means : transaction table should exist -->
+     <property name="customerName" column="cust_name" type="string" />
+    <property name="customerEmail" column="cust_email" type="string"/>
+    <property name="customerAddress" column="cust_address" type="string"/>
+    </class> 
+    </hibernate-mapping>

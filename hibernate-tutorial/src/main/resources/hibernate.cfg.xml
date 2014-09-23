@@ -58,6 +58,19 @@
 <mapping resource="org/hibernate/tutorial/domain/Course.hbm.xml"/>
 
 
+<!-- Unidirectional -->
+
+<!-- one to one mapping using XML -->
+<mapping resource="org/hibernate/tutorial/domain/Transaction.hbm.xml"/>
+<mapping resource="org/hibernate/tutorial/domain/Customer.hbm.xml"/>
+<!-- one to one mapping using Annotations -->
+<mapping class="org.hibernate.tutorial.domain.Transaction1"/>
+<mapping class="org.hibernate.tutorial.domain.Customer1"/>
+
+
+
+
+
 <!-- Composite Identifiers : two primary keys in a single table-->
 <mapping resource="org/hibernate/tutorial/domain/CityMemberInformation.hbm.xml"/>
 
